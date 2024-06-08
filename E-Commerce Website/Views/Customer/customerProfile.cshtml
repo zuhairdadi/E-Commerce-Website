@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "customerProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<Ecommerce_Website.Models.Customer>
+<style>
+    .profile-container {
+        text-align: center;
+    }
+
+    .profile-image {
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+
+    .profile-form {
+        text-align: left;
+    }
+</style>
+
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 profile-container">
+            <h4>Customer Profile</h4>
+
+            <div class="profile-image">
+                <img src="@("~/customer_images/" + Model[0].customer_image)" asp-append-version="true" style="height:200px; width:200px" />
+            </div>
+
+          
+            <form method="post" enctype="multipart/form-data" asp-action="changeProfileImage">
+                <label class="btn btn-link" name="label">
+                    Choose Image
+                    <input type="file" name="customer_image" style="display: none;" />
+                </label><br />
+                <input type="submit" class="btn btn-primary " value="Change Image" /><br />
+                <input type="hidden" name="customer_id" value="@Model[0].customer_id" />
+                <input type="hidden" placeholder="Enter Your Name" name="customer_name" class="form-control mb-3" value="@Model[0].customer_name" />
+                <input type="hidden" placeholder="Enter Your Phone" name="customer_phone" class="form-control mb-3" value="@Model[0].customer_phone" />
+                <input type="hidden" placeholder="Enter Your Email" name="customer_email" class="form-control mb-3" value="@Model[0].customer_email" />
+                <input type="hidden" placeholder="Enter Your Password" name="customer_password" class="form- control mb-3" value="@Model[0].customer_password" />
+                <input type="hidden" placeholder="Enter Your Country" name="customer_country" class="form-control mb-3" value="@Model[0].customer_country" />
+                <input type="hidden" placeholder="Enter Your City" name="customer_city" class="form-control mb-3" value="@Model[0].customer_city " />
+                <input type="hidden" placeholder="Enter Your Address" name="customer_address" class="form- control mb-3" value="@Model[0].customer_address " />
+
+            </form>
+
+            <form method="post" asp-action="updateCustomerProfile" class="profile-form">
+                <input type="hidden" name="customer_id" value="@Model[0].customer_id" />
+                <input type="text" placeholder="Enter Your Name" name="customer_name" class="form-control mb-3" value="@Model[0].customer_name" />
+                <input type="text" placeholder="Enter Your Phone" name="customer_phone" class="form-control mb-3" value="@Model[0].customer_phone" />
+                <input type="text" placeholder="Enter Your Email" name="customer_email" class="form-control mb-3" value="@Model[0].customer_email" />
+                <input type="text" placeholder="Enter Your Password" name="customer_password" class="form-control mb-3" value="@Model[0].customer_password" />
+                <input type="text" placeholder="Enter Your Gender" name="customer_gender" class="form-control mb-3" value="@Model[0].customer_gender" />
+                <input type="text" placeholder="Enter Your Country" name="customer_country" class="form-control mb-3" value="@Model[0].customer_country" />
+                <input type="text" placeholder="Enter Your City" name="customer_city" class="form-control mb-3" value="@Model[0].customer_city" />
+                <input type="text" placeholder="Enter Your Address" name="customer_address" class="form-control mb-3" value="@Model[0].customer_address" />
+                <input type="hidden" name="customer_image" class="form-control mb-3" value="@Model[0].customer_image" />
+                <input type="submit" class="btn btn-primary" value="Update Profile" />
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
