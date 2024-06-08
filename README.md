@@ -48,7 +48,7 @@ Almaari is a comprehensive e-commerce website developed using ASP.NET Core, C#, 
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/yourusername/almaari.git
+   git clone https://github.com/zuhairdadi/e-commerce-website.git
 2. **Navigate to the project directory:**
 
    ```sh
